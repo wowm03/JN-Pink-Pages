@@ -3,9 +3,9 @@ More things for Natsuki to talk about!
 ---
 ## 📥 How to Use
 
-1. **Download** the latest release.
-2. **Place** them in your `game/Submods` folder inside your *Just Natsuki* mod directory.
-3. **Launch** the game. Natsuki will now have new topics to talk about!
+1. Download the latest release.
+2. Place them in your `game/Submods` folder inside your *Just Natsuki* mod directory.
+3. Launch the game. Natsuki will now have new topics to talk about!
 ---
 ## 🙏 Credits
 
