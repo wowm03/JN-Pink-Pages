@@ -1,8 +1,5 @@
 # JN-Pink-Pages
 More things for Natsuki to talk about!
-## 📦 What's Inside
-
-This repository contains custom dialogue topics that add new things for Natsuki to talk about.
 ---
 ## 📥 How to Use
 
