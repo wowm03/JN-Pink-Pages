@@ -124,6 +124,8 @@ label talk_judgement:
 
     return
 
+default persistent.player_likes_horror = None
+
 init 5 python:
     registerTopic(
         Topic(
@@ -131,7 +133,7 @@ init 5 python:
             label="talk_scari",
             unlocked=True,
             prompt="Why do you hate horror?",
-            category=["Natsuki"],
+            category=["Natsuki", "Fears"],
             player_says=True,
             nat_says=False,
             affinity_range=(jn_affinity.HAPPY, None),
@@ -141,7 +143,15 @@ init 5 python:
     )
 
 label talk_scari:
-    n 3tnmfl "You wanna know why I don't like horror?"
+    if get_topic("talk_scari").shown_count > 0:
+        n 7tdtaj "Huh..?"
+        n 3tsqfl "Hey... didn't we talked about this already?"
+        n 3csrpo "..."
+        n 2ccspo "Hmph...{w=0.5}{nw}"
+        extend 2nwmpo " fine...{w=0.7}{nw}"
+        extend 2nsqss " I'll humour you and tell you again."
+    else:
+        n 3tnmfl "You wanna know why I don't like horror?"
     n 3cslpol "...{w=0.35}"
     n 1fcseml "I-{w=0.2}it's not even that it scares me.{w=0.5}"
     n 2fsrpul "Well...{w=0.3}{nw}"
@@ -171,42 +181,49 @@ label talk_scari:
     n 6ccsss "It takes skill to make me cry over a character being {i}happy{/i}."
     n 4cdlfl "Horror just feels...{w=0.35}{nw}"
     extend 2ccsem " mean."
-    n "Why did {i}you{/i} ask?"
-    extend "That's the real quesiton."
+    n 7tdtss "Why did {i}you{/i} ask?{w=0.5}{nw}"
+    extend 7tsqpu " That's the real quesiton."
     show natsuki option_wait_curious
     menu:
-            n "Do {i}you{/i} like horror or something?"
+        n "Do {i}you{/i} like horror or something?"
 
         "Yes.":
-            n 1nchsm "..."
-            n 1fcsbg "Okay, so..."
-            n "I don't get it."
-            extend " Like, at all."
-            n "But you do you."
-            n 7cllaw "I just...{w=0.5}{nw}"
-            extend 7fslfl " don't understand how anyone enjoys being scared."
-            extend 7fsqem " Or watching people get hurt."
-            n 4fcspxa "But I mean...{w=0.45}{nw}"
-            extend 4fsqsm " I'm not gonna judge you for it."
-            if seentopic talk_judgement:
-                n 3knmfl "That would make me a hypocrite, wouldn't it?"
-                n 3fsqsm "After everything I just said about people judging stuff they don't like."
+            $ persistent.player_likes_horror = True
+            n 1tnmpu "..."
+            n 2nllaj "Okay, so..."
+            n 2kchbgesd "I don't get it."
+            extend 2ksrssess " Like, at all."
+            n 2nchgn "But you do you!"
+            n 4nslss "I just...{w=0.35}{nw}"
+            extend 2ccsdveso " don't understand how anyone enjoys being scared."
+            n 2ckraj "But I mean...{w=0.45}{nw}"
+            extend 2nsqbg " I'm not gonna judge you for it."
+            if get_topic("talk_judgement").shown_count > 0:
+                n 7ttlss "That would make me a hypocrite, wouldn't it?"
+                n 3tchbselg "After everything I just said about people judging stuff they don't like."
 
             else:
-                n 4fcssm "Ehehe."
+                n 2fchgn "Ehehe."
 
-            n 7fchbgl "So...{w=0.35}{nw}"
-            extend 7fsqbg " what do you like about it?"
-            n 4ftrrc "Like, actually."
-            show natsuki option_wait_curious
-            menu:
-                    n  "I'm curious about why you like horror."
+            n 2tllaw "So...{w=0.35}{nw}"
+            extend 7tnmbg " what do you like about it?"
+            n 7tsqss "Is it the {b}adrenaline{/b}?"
+            n 6csqbg "The {cps=10}suspense?{/cps}"
+            n 7twrbg "Or do you just like watching people make bad decisions and get eaten?"
+            n 2nchsm "Ehehe."
 
         "No.":
-            n 1fcsbg "The sound of silence it is, then!{w=0.5}{nw}"
-            extend 1fchsm " Ehehe."
+            $ persistent.player_likes_horror = False
+            n 4uspskeex "For real?!"
+            n 4ucugsedz "Like, you're not just saying that?"
+            n 4kctbg "I thought I was the only one!"
+            n 2uchlg "This is so nice."
+            n 7fsqgn "Finally, someone with actual taste."
+            n 6fcsbs "You have no idea how refreshing this is."
+            n 3fcspo "Because I'm {i}so{/i} done with people trying to convince me to watch scary stuff."
+            n 6fwlbg "You and me?{w=0.35}{nw}"
+            extend 3fcssgedz " {i}We{/i} can watch something actually good."
 
-            return
 
     if Natsuki.isLove(higher=True):
         $ chosen_tease = jn_utils.getRandomTease()
@@ -221,27 +238,44 @@ label talk_scari:
         extend 6tcsem " 'you're being dramatic'{w=0.35}{nw}"
         extend 3nslaj " or{w=0.29}{nw}"
         extend 6ttrgs " 'it's not even scary.'"
-        n 3nslpo "...{w=0.5}"
-        n 7tdtpu "Why did you ask anyway?{w=0.35}"
-        n 3fchbgean "I swear, if you're planning to make me watch one with you."
-        n 7tsgsm "But...{w=0.35}{nw}"
-        extend 3fchgn " pretty sure you just wanna know more about me,{w=0.5}{nw}"
-        extend 3uchsml " ehehe."
-        n 4flrpol "It better be that, or else.{w=0.35}"
+        if persistent.player_likes_horror == True:
+            n 3nslpo "...{w=0.5}"
+            n 7tdtpu "Why did you ask that initially anyway?{w=0.35}"
+            n 3fchbgean "I swear, if you're planning to make me watch one with you."
+            n 7tsgsm "But...{w=0.35}{nw}"
+            extend 3fchgn " pretty sure you just wanna know more about me,{w=0.5}{nw}"
+            extend 3uchsml " ehehe."
+            n 4flrpol "It better be that, or else.{w=0.35}"
+        elif persistent.player_likes_horror == False:
+            n 2uchbg "Glad you're on the same page with me, though."
+            n 4fspsm "We're on the same team!"
+            extend 2fcsctl " As we should be, {w=0.4}{nw}"
+            extend 2nchgnl "ehehe."
         n 2fwlbgl "Love you too, [chosen_tease]."
 
     elif Natsuki.isEnamored(higher=True):
-        n 2fchbgl "You're sweet for asking, though."
+        n 2fchbgl "You're sweet for asking at first, though."
         n 2fsqsm "Most people just tell me I'm being a baby about it."
         n 4fcspxa "So...{w=0.5}{nw}"
         extend 4fcspxa " thanks for asking."
         n 3fcssm "It's nice that you actually want to know about what I think."
         n 3fsqsm "That means a bunch! Ehehe."
+        if persistent.player_likes_horror == True:
+            n 7tsraj "Though...{w=0.35}{nw}"
+            extend 7tsqtr "I don't know that part with you liking horror..."
+            n 3fchbs "Ahaha!"
+        elif persistent.player_likes_horror == False:
+            n 3uwmbg "And now I know that you're on my side with this one."
+            n 3nchdv "Ehehe!"
 
     elif Natsuki.isHappy(higher=True):
-        n 4fchbgl "You're not gonna try and make me watch one, are you?"
-        n 3fcssm "Cause that's a hard no."
-        n 4fchbgl "But...{w=0.5}{nw}"
+        if persistent.player_likes_horror == True:
+            n 4fchbgl "You're not gonna try and make me watch a horror movie though, are you?"
+            n 3fcssm "Cause that's a hard no."
+        elif persistent.player_likes_horror == False:
+            n 7tsqbg "We see eye to eye, huh."
+            n 3uchgn "Crazy, right?"
+        n 4fchbgl "And...{w=0.5}{nw}"
         extend 4fcspxa " thanks for asking, I guess."
         n 3fsqsm "It's kinda nice to get that off my chest."
 
@@ -249,7 +283,113 @@ label talk_scari:
         n 4fsqsm "So...{w=0.5}{nw}"
         extend 4fsqbg " yeah."
         n 3fcssm "That's my answer."
-        n 3fsqsm "Don't expect me to watch one with you or anything."
+        if persistent.player_likes_horror == True:
+            n 3fsqpo "Don't expect me to watch one with you or anything."
+        elif persistent.player_likes_horror == False:
+            n 3nwmss "And we agree for once."
 
+    return
+
+init 5 python:
+    registerTopic(
+        Topic(
+            persistent._topic_database,
+            label="talk_feminism",
+            unlocked=True,
+            prompt="What do you think about feminism?",
+            category=["Daily Life", "Life"],
+            player_says=True,
+            nat_says=False,
+            affinity_range=(jn_affinity.HAPPY, None),
+            location="classroom"
+        ),
+        topic_group=TOPIC_TYPE_NORMAL
+    )
+
+label talk_feminism:
+    n 4tnmajeqm "Huh?{w=0.35}{nw}"
+    extend 2tnmpu " Feminism?{w=0.4}"
+    n 3nllpu "That's...{w=0.55}{nw}"
+    extend 7unmgs " a big question."
+    n 4tsrtr "But...{w=0.25}{nw}"
+    extend 2fcsbg " yeah{w=0.25}, I'm on board."
+    n 3knmfl "I mean...{w=0.5}{nw}"
+    extend 3fcsup " look at how people treat me."
+    n 7cllaw "If I get angry?{w=0.5}"
+    extend 7fsqem " I'm 'moody' or 'hysterical.'"
+    n 6tsrfl "If I speak up?{w=0.5}"
+    extend 2cuppo " I'm 'bossy.'"
+    n 2csraj "If a guy did the same thing? {w=0.65}{nw}"
+    extend 2ccsan "He's {w=0.1}{nw}"
+    extend 6ctlem "'passionate' and 'confident.'"
+    n 2fsrem "It's so dumb."
+    n 3ccswr "And don't even get me started on the {w=0.75}{nw}"
+    extend 6csqaj "'cute' {w=0.25}{nw}"
+    extend 3nslbo "thing."
+    n 2cklfl "I like pink. {w=0.35}{nw}"
+    extend 6cllem "I like cute stuff. {w=0.4}{nw}"
+    extend 3fcsun "So what?"
+    n 2ndtfl "That doesn't mean I'm weak or inferior."
+    n 6tsqfl "And you know those people who act like feminism is just 'hating men'?"
+    n 4fcsup "They've just never actually listened to anyone talk about it."
+
+    n 4fcsup "Now don't you dare get me wrong, okay?"
+    n 4fcsup "It's not like I don't think guys deserve those positive labels too."
+    n 4fcsup "They do."
+    n 4fcsup "A guy can be passionate. A guy can be confident. That's not a bad thing."
+    n 4fcsup "But it {i}is{/i} unfair how the same behavior gets judged differently depending on who's doing it."
+    n 4fcsup "That's what feminism is about to me."
+    n 4fcsup "Not 'women good, men bad.'"
+    n 4fcsup "It's about...{w=0.35}{nw}"
+    extend 4fcsup " everyone being able to be themselves without stupid stereotypes getting in the way."
+    n 4fcsup "Like...{w=0.3}{nw}"
+    extend 4fcsup " guys should be able to like cute stuff too without getting made fun of."
+    n 4fcsup "They should be able to show emotions without being called 'weak.'"
+    n 4fcsup "That's not fair to them either."
+    n 4fcsup "It's about...{w=0.5}{nw}"
+    extend 4fcsup " being treated like a person."
+    n 4fcsup "That's it."
+    n 4fcsup "Not being dismissed because of your gender."
+    n 4fcsup "Not having your opinions ignored."
+    n 4fcsup "Not being judged for what you like or how you dress."
+    n 4fcsup "So, yeah."
+    n 4fcsup "I guess I {i}am{/i} a feminist."
+
+    if Natsuki.isLove(higher=True):
+        $ chosen_tease = jn_utils.getRandomTease()
+        n 4klrbgl "..."
+        n 3knmpol "You know what I really appreciate about you?"
+        n 4klrpol "You've never once made me feel like I'm 'too much.'"
+        n 4klrbgl "You just...{w=0.3}{nw}"
+        extend 4klrpol " treat me like a person."
+        n 4flrpol "So...{w=0.5}{nw}"
+        extend 4klrbgl " thanks for that."
+        n 3klrpol "It's part of why I love you, [chosen_tease]."
+        n 4flrpol "You treat me like an equal."
+        n 4klrbgl "And that means everything."
+        n 4klrbgl "Ehehe."
+
+    elif Natsuki.isEnamored(higher=True):
+        n 2fchbgl "You're kinda nice to talk to about this."
+        extend 2fsqsm "Since you actually listen."
+        n 4fcspxa "Most people just tell me I'm overreacting."
+        n 3fsqsm "So...{w=0.5}{nw}"
+        extend 3fchbgl " thanks for that."
+        n 4fcssm "Ehehe."
+
+    elif Natsuki.isHappy(higher=True):
+        n 4fchbgl "You know..."
+        n 4fcssm "You're one of the few people who actually listens when I talk about stuff like this."
+        n 3fsqsm "Most people just nod and change the subject."
+        n 4fchbgl "So...{w=0.5}{nw}"
+        extend 4fcspxa " thanks for being cool about it."
+        n 3fcssm "Ehehe."
+
+    else:
+        n 4fsqsm "So...{w=0.5}{nw}"
+        extend 4fsqbg " yeah."
+        n 3fcssm "That's what I think."
+        n 3fsqsm "It's not complicated."
+        n 4fchbgl "Ehehe."
 
     return
