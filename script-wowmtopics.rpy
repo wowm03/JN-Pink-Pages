@@ -133,7 +133,7 @@ init 5 python:
             label="talk_scari",
             unlocked=True,
             prompt="Why do you hate horror?",
-            category=["Natsuki", "Fears"],
+            category=["Natsuki"],
             player_says=True,
             nat_says=False,
             affinity_range=(jn_affinity.HAPPY, None),
@@ -147,8 +147,8 @@ label talk_scari:
         n 7tdtaj "Huh..?"
         n 3tsqfl "Hey... didn't we talked about this already?"
         n 3csrpo "..."
-        n 2ccspo "Hmph...{w=0.5}{nw}"
-        extend 2nwmpo " fine...{w=0.7}{nw}"
+        n 2ccspo "Hmph...{w=0.35}{nw}"
+        extend 2nwmpo " fine...{w=0.4}{nw}"
         extend 2nsqss " I'll humour you and tell you again."
     else:
         n 3tnmfl "You wanna know why I don't like horror?"
@@ -181,11 +181,12 @@ label talk_scari:
     n 6ccsss "It takes skill to make me cry over a character being {i}happy{/i}."
     n 4cdlfl "Horror just feels...{w=0.35}{nw}"
     extend 2ccsem " mean."
-    n 7tdtss "Why did {i}you{/i} ask?{w=0.5}{nw}"
-    extend 7tsqpu " That's the real quesiton."
+    #yo change expression
+    n 2kwmss "Why did {i}you{/i} ask?"
+    extend 2kwmss "That's the real quesiton."
     show natsuki option_wait_curious
     menu:
-        n "Do {i}you{/i} like horror or something?"
+            n "Do {i}you{/i} like horror or something?"
 
         "Yes.":
             $ persistent.player_likes_horror = True
@@ -207,22 +208,22 @@ label talk_scari:
 
             n 2tllaw "So...{w=0.35}{nw}"
             extend 7tnmbg " what do you like about it?"
-            n 7tsqss "Is it the {b}adrenaline{/b}?"
-            n 6csqbg "The {cps=10}suspense?{/cps}"
+            n 7tsqss "Is it the {cps=0}adrenaline?{/cps}"
+            extend 6csqbg "The {cps=30}suspense?{/cps}"
             n 7twrbg "Or do you just like watching people make bad decisions and get eaten?"
             n 2nchsm "Ehehe."
 
         "No.":
             $ persistent.player_likes_horror = False
-            n 4uspskeex "For real?!"
-            n 4ucugsedz "Like, you're not just saying that?"
-            n 4kctbg "I thought I was the only one!"
-            n 2uchlg "This is so nice."
-            n 7fsqgn "Finally, someone with actual taste."
-            n 6fcsbs "You have no idea how refreshing this is."
-            n 3fcspo "Because I'm {i}so{/i} done with people trying to convince me to watch scary stuff."
-            n 6fwlbg "You and me?{w=0.35}{nw}"
-            extend 3fcssgedz " {i}We{/i} can watch something actually good."
+            n 2kwmss "For real?!{w=0.5}{nw}"
+            n 2kwmss " Like, you're not just saying that?"
+            n 2kwmss "I thought I was the only one!"
+            n 2kwmss "This is so nice."
+            n 2kwmss "Finally, someone with actual taste."
+            n 2kwmss "You have no idea how refreshing this is."
+            n 2kwmss "Because I'm {i}so{/i} done with people trying to convince me to watch scary stuff."
+            n 2kwmss "You and me?{w=0.35}{nw}"
+            extend 2kwmss " {i}We{/i} can watch something actually good."
 
 
     if Natsuki.isLove(higher=True):
@@ -251,8 +252,16 @@ label talk_scari:
             n 4fspsm "We're on the same team!"
             extend 2fcsctl " As we should be, {w=0.4}{nw}"
             extend 2nchgnl "ehehe."
+        else:
+            n 3nslpo "...{w=0.5}"
+            n 7tdtpu "Why did you ask that initially anyway?{w=0.35}"
+            n 3fchbgean "I swear, if you're planning to make me watch one with you."
+            n 7tsgsm "But...{w=0.35}{nw}"
+            extend 3fchgn " pretty sure you just wanna know more about me,{w=0.5}{nw}"
+            extend 3uchsml " ehehe."
+            n 4flrpol "It better be that, or else.{w=0.35}"
         n 2fwlbgl "Love you too, [chosen_tease]."
-
+#maybe add the persistent thing haha
     elif Natsuki.isEnamored(higher=True):
         n 2fchbgl "You're sweet for asking at first, though."
         n 2fsqsm "Most people just tell me I'm being a baby about it."
@@ -260,22 +269,11 @@ label talk_scari:
         extend 4fcspxa " thanks for asking."
         n 3fcssm "It's nice that you actually want to know about what I think."
         n 3fsqsm "That means a bunch! Ehehe."
-        if persistent.player_likes_horror == True:
-            n 7tsraj "Though...{w=0.35}{nw}"
-            extend 7tsqtr "I don't know that part with you liking horror..."
-            n 3fchbs "Ahaha!"
-        elif persistent.player_likes_horror == False:
-            n 3uwmbg "And now I know that you're on my side with this one."
-            n 3nchdv "Ehehe!"
 
     elif Natsuki.isHappy(higher=True):
-        if persistent.player_likes_horror == True:
-            n 4fchbgl "You're not gonna try and make me watch a horror movie though, are you?"
-            n 3fcssm "Cause that's a hard no."
-        elif persistent.player_likes_horror == False:
-            n 7tsqbg "We see eye to eye, huh."
-            n 3uchgn "Crazy, right?"
-        n 4fchbgl "And...{w=0.5}{nw}"
+        n 4fchbgl "You're not gonna try and make me watch one, are you?"
+        n 3fcssm "Cause that's a hard no."
+        n 4fchbgl "But...{w=0.5}{nw}"
         extend 4fcspxa " thanks for asking, I guess."
         n 3fsqsm "It's kinda nice to get that off my chest."
 
@@ -283,12 +281,10 @@ label talk_scari:
         n 4fsqsm "So...{w=0.5}{nw}"
         extend 4fsqbg " yeah."
         n 3fcssm "That's my answer."
-        if persistent.player_likes_horror == True:
-            n 3fsqpo "Don't expect me to watch one with you or anything."
-        elif persistent.player_likes_horror == False:
-            n 3nwmss "And we agree for once."
+        n 3fsqsm "Don't expect me to watch one with you or anything."
 
     return
+
 
 init 5 python:
     registerTopic(
@@ -393,3 +389,217 @@ label talk_feminism:
         n 4fchbgl "Ehehe."
 
     return
+
+label talk_menstruation:
+    n 2tslpu "Huh?{w=0.75}{nw}"
+    extend 2csqfl " Is it rude to ask about periods?"
+
+    n 4fcsun "......"
+    n 4fslbo "....."
+
+    n 3ftrrc "That's...{w=0.5}{nw}"
+    extend 3fcspxa " actually a really good question."
+
+    n 7cspxs "Okay, so..."
+    n 7csqgo "Here's the honest answer."
+
+    n 4ftrrsd "It depends."
+
+    n 2cspxa "If you're asking because you actually {i}care{/i}?"
+    n 2fsqsm "Not rude at all."
+    n 4fcspxa "If you're asking to be weird or gross or make someone uncomfortable?"
+    n 4fcsup "Yeah, that's rude."
+
+    n 3knmfl "Context matters, you know?"
+
+    n 7tslfl "Like...{w=0.5}{nw}"
+    extend 7fcspxa " if someone's clearly in pain or having a rough day?"
+    n 4ftrrc "Asking 'hey, are you okay? do you need anything?'"
+    n 4fsqsm "That's not rude. That's called being a decent person."
+
+    n 2cspxs "But if you just walk up to someone and go 'hey, you on your period or something?'"
+    n 2fsrem "Yeah, that's rude."
+    n 2csqem "Don't do that."
+
+    n 4fcspxa "Also?{w=0.75}{nw}"
+    extend 4fsqsm " Don't ask in front of other people."
+    n 4ftrrsd "That's just embarrassing for everyone involved."
+
+    n 7fchbgl "So...{w=0.5}{nw}"
+    extend 7fsqbg " the short version?"
+    n 3fcssm "Ask if you care. Not if you're trying to be funny."
+    n 3fsqsm "And definitely don't use it as an insult."
+
+    n 4fcsun "..."
+    n 4fslbo "......"
+
+    n 2fsqsm "But you?"
+    n 2fcspxa "You're asking because you actually want to know."
+    n 4fchbgl "That's...{w=0.3}{nw}"
+    extend 4fcssm " kind of nice, actually."
+
+    if Natsuki.isLove(higher=True):
+        $ chosen_tease = jn_utils.getRandomTease()
+        n 4klrbgl "Most people don't bother to think about stuff like this."
+        n 3knmpol "They just...{w=0.3}{nw}"
+        extend 3kllfl " assume or make jokes or avoid it completely."
+        n 4klrpol "But you?{w=0.5}{nw}"
+        extend 4klrbgl " You actually want to get it right."
+        n 3klrpol "That's...{w=0.3}{nw}"
+        extend 4klrbgl " that's why I love you, [chosen_tease]."
+        n 3knmpol "Because you care about getting things right."
+        n 4flrpol "Not just for me, but in general."
+        n 4klrbgl "So...{w=0.5}{nw}"
+        extend 4klrpol " keep asking questions like this, okay?"
+        n 3klrpol "The world needs more people who {i}think{/i} before they speak."
+        n 4flrpol "Love you, dummy.{w=0.5}{nw}"
+        extend 1klrbgl " Ehehe."
+
+    elif Natsuki.isEnamored(higher=True):
+        n 2fchbgl "You're...{w=0.3}{nw}"
+        extend 2fslbo " actually really sweet for asking."
+        n 2fsqsm "Most people don't care if it's rude or not."
+        n 4fcspxa "They just...{w=0.3}{nw}"
+        extend 4csqfl " say whatever."
+        n 3fcssm "So...{w=0.5}{nw}"
+        extend 3fchbgl " thanks for being thoughtful."
+        n 3fsqsm "That means a lot."
+        n 4fcssm "Ehehe."
+
+    elif Natsuki.isHappy(higher=True):
+        n 4fchbgl "You know..."
+        n 4fcssm "You're kinda sweet for asking this."
+        n 3fsqsm "Most people just don't think about it at all."
+        n 4fchbgl "So...{w=0.5}{nw}"
+        extend 4fcspxa " here's the short version:"
+        n 3fsqbg "Ask if you care. Don't be weird. Don't do it in public."
+        n 4fcssm "That's literally it."
+        n 3fchbgl "See? Not that hard."
+        n 4fcssm "Ehehe."
+
+    else:
+        n 4fsqsm "So...{w=0.5}{nw}"
+        extend 4fsqbg " yeah."
+        n 3fcssm "That's my answer."
+        n 3fsqsm "It's not rude if you actually care."
+        n 4fchbgl "And you seem like you care, so..."
+        n 3fcssm "you're fine."
+        n 3fsqsm "Thanks for asking, though."
+        n 4fcssm "Seriously."
+
+    return
+YOURE THOUGHTFUL, CARING,
+init 5 python:
+    registerTopic(
+        Topic(
+            persistent._topic_database,
+            label="talk_period_care",
+            unlocked=True,
+            prompt="How should I treat you when you're on your period?",
+            category=["Daily life", "Health"],
+            player_says=True,
+            nat_says=False,
+            affinity_range=(jn_affinity.NORMAL, None),
+            location="classroom"
+        ),
+        topic_group=TOPIC_TYPE_NORMAL
+    )
+
+label talk_period_care:
+    n 2tslpu "Huh?{w=0.75}{nw}"
+    extend 2csqfl " How to...{w=0.3}{nw}"
+    extend 4ccsem " treat me?"
+
+    n 2fcsun "......"
+    n 2fslbo "....."
+
+    n 4csqfl "That's...{w=0.5}{nw}"
+    extend 4fslfl " actually really thoughtful."
+
+    n 3fcsun "Okay, so..."
+    n 3fcspxa "Here's the thing."
+
+    n 7ftrrc "First of all?{w=0.75}{nw}"
+    extend 7fsqbg " Don't be weird about it."
+    n 4ftrrsd "Like, don't act grossed out or change the subject when I mention it."
+    n 4csqfl "It's a normal thing.{w=0.5}{nw}"
+    extend 4fsqem " Half the population deals with it."
+
+    n 2cspxa "Second?"
+    n 2fsqsm "Ask what I need."
+    n 7fcspxa "Sometimes I want snacks. Sometimes I want a heating pad."
+    n 7fslfl "Sometimes I just want to be left alone."
+    n 3knmfl "And all of those are okay."
+
+    n 4ftrrc "Third?{w=0.75}{nw}"
+    extend 4fcsup " Don't say 'you're being dramatic' or 'it can't be that bad.'"
+    n 4ftrrsd "Because trust me...{w=0.5}{nw}"
+    extend 4csqem " it {i}can{/i} be that bad."
+
+    n 3fchbgl "Fourth?{w=0.75}{nw}"
+    extend 3fcssm " Snacks."
+    n 3fsqbg "Chocolate. Warm drinks. Maybe some cupcakes if I'm feeling ambitious."
+
+    n 2fcspxa "And fifth?...{w=0.5}{nw}"
+    extend 2fslbo " Just be patient with me."
+    n 2kcsfl "If I snap at you for no reason?"
+    n 4fslfl "I probably don't mean it."
+    n 4kcsfl "I'm just...{w=0.3}{nw}"
+    extend 4fslbo " tired and crampy and over it."
+
+    n 7fcspxa "But honestly?{w=0.75}{nw}"
+    extend 7fsqsm " The fact that you're even asking?"
+    n 7fchbgl "That already puts you ahead of most people."
+
+    n 3fcssm "Ehehe."
+
+    if Natsuki.isLove(higher=True):
+        $ chosen_tease = jn_utils.getRandomTease()
+        n 4klrbgl "Most guys just...{w=0.3}{nw}" there are people who
+        extend 4csqfl " ignore it."
+        n 4csqfl "Or act like it's some kind of secret." taboo
+        n 3knmpol "But you?{w=0.5}{nw}" but you actually
+        extend 3klrpol " You want to know how to make it {i}easier{/i} for me."
+        n 4klrbgl "That's...{w=0.3}{nw}"
+        extend 4klrpol " that's why I love you, [chosen_tease]."
+        n 3knmpol "Because you care about the messy stuff too."
+        n 4flrpol "Not just the fun parts."
+        n 4klrbgl "So...{w=0.5}{nw}"
+        extend 4klrpol " just keep being you, okay?"
+        n 3klrpol "And maybe bring me chocolate."
+        n 4flrpol "Love you, dummy.{w=0.5}{nw}"
+        extend 1klrbgl " Ehehe."
+
+    elif Natsuki.isEnamored(higher=True):
+        n 2fchbgl "You're...{w=0.3}{nw}"
+        extend 2fslbo " actually really sweet for asking."
+        n 2fsqsm "Most people don't care." people avoid the topic
+        n 4fcspxa "So...{w=0.5}{nw}"
+        extend 4fcssm " thanks."
+        n 3fsqsm "Just... be patient. Bring snacks. Don't make me feel like a burden."
+        n 4fchbgl "That's really all I need."
+        n 3fslbo "And maybe don't talk to me for the first hour after I wake up."
+        n 4fcssm "Ehehe."
+
+    elif Natsuki.isHappy(higher=True):
+        n 4fchbgl "You know..."
+        n 4fcssm "You're kinda sweet for asking."
+        n 3fsqsm "Most people just avoid the topic altogether."
+        n 4fchbgl "So...{w=0.5}{nw}"
+        extend 4fcspxa " here's the short version:"
+        n 3fsqbg "Snacks, patience, and don't be weird about it."
+        n 4fcssm "That's literally it."
+        n 3fchbgl "Oh, and maybe a heating pad if you have one."
+        n 4fcssm "Ehehe."
+
+    else:
+        n 4fsqsm "So...{w=0.5}{nw}"
+        extend 4fsqbg " yeah."
+        n 3fcssm "That's what I'd want."
+        n 3fsqsm "Snacks, patience, and don't act grossed out."
+        n 4fchbgl "Not that complicated, right?"
+        n 3fcssm "Thanks for asking, though."
+        n 3fsqsm "Seriously."
+
+    return
+INSOMINAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
