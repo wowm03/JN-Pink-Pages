@@ -297,7 +297,7 @@ init 5 python:
             label="talk_wowm_aascari",
             unlocked=True,
             prompt="Why do you hate horror?",
-            category=["Natsuki", "Fears"],
+            category=["Fears"],
             player_says=True,
             nat_says=False,
             affinity_range=(jn_affinity.HAPPY, None),
@@ -471,7 +471,7 @@ init 5 python:
             label="talk_wowm_takenfromeurobradi",
             unlocked=True,
             prompt="How did you stop judging people you just met?",
-            category=["Natsuki", "Life"],
+            category=["Life"],
             player_says=True,
             nat_says=False,
             affinity_range=(jn_affinity.HAPPY, None),
@@ -494,7 +494,7 @@ label talk_wowm_takenfromeurobradi:
         n 4ccsca "...{w=0.2}{nw}"
         extend 2cdwss "I'll be honest."
 
-    n 6cslsg "I didn't just wake up one day and decide to be nice.{w=0.9}{nw}"
+    n 6cslsg "I didn't just wake up one day and decide to be nice.{w=0.83}{nw}"
     extend 4ccsbg " I had to {i}learn{/i} it."
     n 6ttlgs "When I first joined the club?{w=0.65}{nw}"
     extend 3kchtsesz " I had a lot of opinions about everyone."
