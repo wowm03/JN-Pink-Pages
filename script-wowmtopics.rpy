@@ -514,7 +514,7 @@ label talk_wowm_takenfromeurobradi:
     n 3ksrss "And I thought...{w=0.67}{nw}"
     extend 4kdwss " 'wait,{w=0.3} this is exactly what people do to me.'"
     n 6ftlem "People look at me and see a short girl who likes pink and manga."
-    n 2csqan "They don't bother to look deeper, and insteads just assumes that I'm {i}childish{/i}."
+    n 2csqan "They don't bother to look deeper, and instead just assumes that I'm {i}childish{/i}."
     n 3ccsup "And I {i}hate{/i} that."
     n 2cdrun "So I asked myself..."
     extend 4cdwsf " 'why am I doing the same thing to them?'"
