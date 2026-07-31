@@ -537,7 +537,7 @@ label talk_wowm_takenfromeurobradi:
     n 2kcssf "Sayori wasn't just cheerful; she was fighting her own battles."
     n 7ktraj "And Yuri?{w=0.35}{nw}"
     extend 6kchbg " She's actually really sweet once you get past the whole...{w=0.7}{nw}"
-    extend 7cdrss " intense thing."
+    extend 7cdrss " tough starting."
     n 4tdlaj "So I guess...{w=0.5}{nw}"
     extend 2kcsbg " the answer is:{w=0.2} I realised I was doing the exact thing I hated."
     n 2cdwss "And I didn't and don't wanna be that person."
