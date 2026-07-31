@@ -426,7 +426,7 @@ label talk_wowm_aascari:
             extend 6ucsbg " oh well!{w=0.5}"
             n 6fnmbg "Besties gotta have something to fight about,{w=0.5}{nw}"
             extend 7fwlgn " yeah?{w=0.7}"
-            n 2uchlg " Ehehe!"
+            n 2uchlg "Ehehe!"
         elif persistent._wowmtopics.get("wowmi_liky_playa_horra") == "dislikes":
             n 4fwdbg "Now what you up for, huh?{w=0.4}{nw}"
             extend 3fchgn " Hehe!"
