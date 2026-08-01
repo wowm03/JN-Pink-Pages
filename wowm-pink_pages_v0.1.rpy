@@ -33,7 +33,7 @@ label talk_wowm_judgemento:
         n 7tllfl "Haven't we talked about this before?"
         n 3tsqfs "Hmph...{w=0.46}{nw} "
         extend 3ccsss "fine, I'll answer you again."
-        n 3csrfl "Yes{w=0.3}{nw}, they do."
+        n 3csrfl "Yes{w=0.3}, they do."
     else:
         n 3ccsgs "Duh!{w=0.15}{nw}"
         extend 3cslpo " All the time!"
@@ -184,12 +184,12 @@ label talk_wowm_judgemento:
         "No.":
             $ persistent._wowmtopics["wowmi_playa_judged"] = "false"
             n 1kcsflesi "Phew..."
-            n 2csqfl "Okay,{w=0.2}{nw} good."
+            n 2csqfl "Okay,{w=0.2} good."
             n 2fcspo "I was about to throw hands."
             n 4knmbg "It's really good that you don't have to deal with that."
             n 3fcsun "But...{w=0.25}{nw}"
             extend 7kdtfl " is there anyone you know bothered by those judgemental people?"
-            n 3cdwfl "If you know someone who's being judged,{w=0.6}{nw}"
+            n 3cdwfl "If you know someone who's being judged,{w=0.5}{nw}"
             extend 3klrfl " stand up for them."
             n 3knmfl "You don't have to be loud about it or start a fight."
             n 6kcsss "Sometimes just saying 'hey, that's not cool' is enough."
@@ -223,7 +223,7 @@ label talk_wowm_judgemento:
             n 2kwmaj "Just know that if anything happens..."
             n 4kwrsm "I'm here, okay?"
             extend 2kcsbgl " I'll always be here for you."
-            n 6cwdbg "And!{w=0.2}{nw}"
+            n 6cwdbg "And!{w=0.28}{nw}"
 
         extend 3uchbg " I'll always, {b}always{/b} have your back!"
         n 1knmbgl "...You're exactly that kind of person for me."
