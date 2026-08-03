@@ -463,7 +463,6 @@ label talk_wowm_aascari:
 
     return
 
-#UNFINISHEDDDD
 init 5 python:
     registerTopic(
         Topic(
@@ -578,5 +577,5 @@ label talk_wowm_takenfromeurobradi:
         n 3ndwss "It's not always easy, but it's worth it."
 
     return
-
+#UNFINISHEDDDD
 #YOURE THOUGHTFUL, CARING,
