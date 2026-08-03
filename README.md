@@ -10,7 +10,7 @@ More things for Natsuki to talk about!
 ## 🙏 Credits
 
 - Topics written by Wowm
-- Beta tested by Zombie_8 and Zhaumbie.
+- Beta tested by [Zombie_B](https://github.com/wowm03/JN-Pink-Pages/edit/main/README.md) and [Zhaumbie](https://www.reddit.com/user/zhaumbie/) and my boyfriend tehe.
 - *Just Natsuki* mod by the Just Natsuki Team
 - Natsuki belongs to *Doki Doki Literature Club!* by Team Salvato
 ---
