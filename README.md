@@ -4,7 +4,7 @@ More things for Natsuki to talk about!
 ## 📥 How to Use
 
 1. Download the latest release then extract it.
-2. Place them in your `game/Submods` folder inside your *Just Natsuki* mod directory.
+2. Place the rpy file in your `game/Submods` folder inside your *Just Natsuki* mod directory. (Delete the old file first if you have a previous version of it.)
 3. Launch the game. Natsuki will now have new topics to talk about!
 ---
 ## 🙏 Credits
