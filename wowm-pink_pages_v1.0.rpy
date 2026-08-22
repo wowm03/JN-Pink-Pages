@@ -20,7 +20,7 @@ init 5 python:
             category=["Life", "Society"],
             player_says=True,
             nat_says=False,
-            affinity_range=(jn_affinity.HAPPY, None),
+            affinity_range=(jn_affinity.NORMAL, None),
             location="classroom"
         ),
         topic_group=TOPIC_TYPE_NORMAL
@@ -61,8 +61,8 @@ label talk_wowm_judgemento:
     extend 6tplaj "{i}one{/i}{w=0.5}{nw}"
     extend 3ndtem " specific thing they don't like about her?"
     n 2ccspuesp "Crickets."
-    n 2csgaj "Or worse,{w=0.25}{nw}"
-    extend 6cuntr "{i}'I don't need to.{w=0.2} Everyone knows she's gross.'{/i}"
+    n 2csgaj "Or worse,{w=0.38}{nw}"
+    extend 6cuntr "{i}'I don't need to.{w=0.39} Everyone knows she's gross.'{/i}"
     n 2ccsfu "Ugh, {w=0.3}{nw}"
     extend 2fsrem "that attitude makes me so mad."
     n 2nsqsl "Like, {w=0.3}{nw}"
@@ -379,8 +379,8 @@ label talk_wowm_aascari:
 
         "No.":
             $ persistent._wowmtopics["wowmi_liky_playa_horra"] = "dislikes"
-            n 4uspskeex "For real?!{w=0.5}{nw}"
-            n 4uwdgsedz " Like, you're not just saying that?"
+            n 4uspskeex "For real?!{w=0.5}"
+            n 4uwdgsedz "Like, you're not just saying that?"
             n 4kctbg "I thought I was the only one!"
             n 1nchlg "This is so nice."
             n 3fkrbg "Finally, someone with actual taste."
@@ -473,7 +473,7 @@ init 5 python:
             category=["Life"],
             player_says=True,
             nat_says=False,
-            affinity_range=(jn_affinity.HAPPY, None),
+            affinity_range=(jn_affinity.NORMAL, None),
             location="classroom"
         ),
         topic_group=TOPIC_TYPE_NORMAL
@@ -579,3 +579,119 @@ label talk_wowm_takenfromeurobradi:
     return
 #UNFINISHEDDDD
 #YOURE THOUGHTFUL, CARING,
+init 5 python:
+    registerTopic(
+        Topic(
+            persistent._topic_database,
+            label="talk_wowm_literature_manga",
+            unlocked=True,
+            prompt="Is manga really literature?",
+            category=["Literature"],
+            player_says=True,
+            nat_says=False,
+            affinity_range=(jn_affinity.NORMAL, None),
+            location="classroom"
+        ),
+        topic_group=TOPIC_TYPE_NORMAL
+    )
+
+label talk_wowm_literature_manga:
+    if get_topic("talk_wowm_literature_manga").shown_count > 0:
+        n "Hey..."
+        extend " this again?"
+        n 3csrpo "..."
+        n 2ccspo "Hmph...{w=0.3}{nw}"
+        extend 2nwmpo " fine...{w=0.7}{nw}"
+        extend 2nsqss " I'll tell you again."
+        n 2fsqsm "But my answer's still the same."
+
+    else:
+
+    n 2tslpu "Is manga literature?{w=0.65}{nw}"
+    extend 2csqfl " That's not even a question."
+    n 4fcsbs "DUH.{w=0.26}{nw}"
+    extend 4fchbgl " Obviously."
+    n 3knmfl "I mean...{w=0.3}{nw}"
+    extend 3fsqem " how is it {i}not{/i}?"
+    n 6cspxs "It has stories. Characters. Themes. Emotions."
+    n 4fsqsm "It makes you think and feel."
+    n 4fcspxa "It's literally the same as any other book."
+    n 2fsrem "People who say it's 'just pictures' have never actually read one."
+    n 2cspxs "They see the art and think that's all there is."
+    n 4fsqem "But the art is part of the story."
+    n 3knmfl "The way a panel is drawn? The angle? The expression on a character's face?"
+    n 4fsqsm "That's not just decoration. That's {i}storytelling{/i}."
+    n 7fcspxa "And the writing itself? The dialogue? The pacing?"
+    n 7fsqsm "Some manga have writing that's better than most novels."
+    n 3fsqsm "So{w=0.2} yeah.{w=0.3}{nw}"
+    extend 4fcspxa " Manga {i}is{/i} literature."
+    n 4fchbgl "End of discussion."
+    show natsuki option_wait_curious
+    menu:
+        n "What's got you asking?"
+
+        "I agree with you.":
+            $ persistent._wowmtopics["wowmi_literature_response"] = "agree"
+            n 2unmfl "Really?"
+            n 4fchbgl "Good."
+            n 4fcspxa "I knew you had taste."
+            n 3fcssm "Ehehe."
+
+        "I'm not sure I agree.":
+            $ persistent._wowmtopics["wowmi_literature_response"] = "disagree"
+            n 2fcsun "..."
+            n 2fslbo "......"
+            n 4fsqsm "Hmph."
+            n 3fsrem "Well, you're wrong."
+            n 4fcssm "Ehehe."
+            n 3fsqsm "But I guess I can't force you to see it."
+
+        "What would you tell someone who disagrees?":
+            $ persistent._wowmtopics["wowmi_literature_response"] = "defend"
+            n 4fchbgl "Oh, I've got a whole speech."
+            n 3knmfl "First, I'd ask them if they've ever actually {i}read{/i} one."
+            n 4fsqem "If they haven't, their opinion doesn't count."
+            n 2cspxa "Then I'd hand them a volume and say: 'Read this. Then come talk to me.'"
+            n 3fcssm "Ehehe."
+            n 3fsqsm "Works every time."
+
+        "I've never really thought about it.":
+            $ persistent._wowmtopics["wowmi_literature_response"] = "never"
+            n 2fcsun "..."
+            n 2fslbo "......"
+            n 4fsqsm "Well...{w=0.3}{nw}"
+            extend 4fcspxa " now you have."
+            n 3fcssm "Ehehe."
+            n 3fsqsm "And hopefully, you see it my way."
+
+    if Natsuki.isLove(higher=True):
+        $ chosen_tease = jn_utils.getRandomTease()
+        n 3klrpol "And [chosen_tease]?"
+        n 3knmpol "I'm glad you actually listen to me talk about this."
+        n 4klrpol "Most people just roll their eyes."
+        n 4klrbgl "But you? You actually {i}hear{/i} me."
+        n 3klrpol "That's part of why I love you."
+        n 4flrpol "Love you, dummy."
+        n 4klrbgl "Ehehe."
+
+    elif Natsuki.isEnamored(higher=True):
+        $ chosen_endearment = jn_utils.getRandomEndearment()
+        n 2fchbgl "And honestly, [chosen_endearment]?"
+        n 2fsqsm "I'm glad you actually listen."
+        n 4fcspxa "It means a lot."
+        n 3fcssm "Ehehe."
+
+    elif Natsuki.isHappy(higher=True):
+        n 4fchbgl "And honestly?{w=0.5}{nw}"
+        extend 4fcssm " I'm glad you actually listen."
+        n 3fsqsm "It's nice."
+        n 4fcssm "Ehehe."
+
+    else:
+        n 4fsqsm "So...{w=0.5}{nw}"
+        extend 4fsqbg " yeah."
+        n 3fcssm "That's what I think."
+        n 3fsqsm "Thanks for asking, though."
+        n 4fcssm "Ehehe."
+
+    return
