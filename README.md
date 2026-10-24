@@ -14,6 +14,12 @@ More things for Natsuki to talk about!
 - *Just Natsuki* mod by the Just Natsuki Team
 - Natsuki belongs to *Doki Doki Literature Club!* by Team Salvato
 ---
+## 🩷 Topics added
+
+1. Being judged by others
+2. Judging others
+3. Why Natsuki hates horror
+---
 ## 💬 Feedback
 
 Found a bug? Have a suggestion? Open an issue!
