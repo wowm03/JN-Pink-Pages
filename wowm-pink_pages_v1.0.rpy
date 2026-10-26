@@ -825,12 +825,12 @@ label after_reason_menu:
         n 4kwmbg "Well...{w=0.3} thanks for sharing that with me."
         n 2ccsdvsbl "It's not always easy to talk about this stuff."
         n 1kdrbg "So...{w=0.25} I appreciate it."
-        n 4fsqfl "And...{w=0.29}{nw}"
-        extend 4fcspxa " you're not alone in this,{w=0.45} okay?"
-        n 3knmfl "I struggle with it too."
-        n 3knmfl "Whatever your reason is...{w=0.56}{nw}"
-        extend 3fsqsm " It's valid."
-        n 4fcspxa "And I'm here if you ever want to talk about it."
+        n 4nwdpu "And...{w=0.29}{nw}"
+        extend 4uwmss " you're not alone in this,{w=0.45} okay?"
+        n 5ckrdv "I struggle with it too."
+        n 7ndraw "Whatever your reason is...{w=0.56}{nw}"
+        extend 4kwmbg " It's valid."
+        n 3uchfs "And I'm here if you ever want to talk about it."
 
     elif persistent._wowmtopics.get("no_recieve_complimens") == "false":
         n 2ccspolesd "..."
