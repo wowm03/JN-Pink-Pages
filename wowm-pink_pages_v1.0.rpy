@@ -806,13 +806,13 @@ label reason_menu:
 
             "I recieve them just fine!":
                 $ persistent._wowmtopics["no_recieve_complimens"] = "false"
-                n "Wait...{w=0.3} really?"
-                n 4fsqem "So you're telling me...{w=0.56}{nw}"
-                extend 4fsrem "you don't struggle with compliments at all?"
-                n 3knmfl "And you just...{w=0.3}{nw}"
-                extend 3fsqsm " accept them?"
-                n 4fsqsm "Here I am pouring my heart out about how hard it is..."
-                n 3fsqem "And you're just like 'Nah, I'm good.'"
+                n 4uwdaw "Wait...{w=0.3} really?"
+                n 2tsqtr "So you're telling me...{w=0.56}{nw}"
+                extend 4tsksk " you don't struggle with compliments at all?"
+                n 7cdwaj "And you just...{w=0.3}{nw}"
+                extend 4twdgs " accept them?"
+                n 2nslpo "Here I am pouring my heart out about how hard it is..."
+                n 3fcsbs "And you're just like{w=0.67} 'Nah, I'm good.'"
                 #$ persistent._wowmtopics["wowmi_playa_complimen_noprob"] = "true"
                 jump after_reason_menu
 
@@ -822,9 +822,9 @@ label reason_menu:
 
 label after_reason_menu:
     if persistent._wowmtopics.get("no_recieve_complimens") == "true":
-        n 4fcspxa "Well...{w=0.3} thanks for sharing that with me."
-        n 3knmfl "It's not always easy to talk about this stuff."
-        n 4fsqsm "So...{w=0.25} I appreciate it."
+        n 4kwmbg "Well...{w=0.3} thanks for sharing that with me."
+        n 2ccsdvsbl "It's not always easy to talk about this stuff."
+        n 1kdrbg "So...{w=0.25} I appreciate it."
         n 4fsqfl "And...{w=0.29}{nw}"
         extend 4fcspxa " you're not alone in this,{w=0.45} okay?"
         n 3knmfl "I struggle with it too."
@@ -834,14 +834,12 @@ label after_reason_menu:
 
     elif persistent._wowmtopics.get("no_recieve_complimens") == "false":
         n 2ccspolesd "..."
-        n 4fsqsm "So...{w=0.3} yeah."
-        n 4fsqem "You're one of the lucky ones,{w=0.6} huh?{w=0.4}{nw}"
+        n 4fsqsm "So...{w=0.3} "
+        extend 7twmbg " you're one of the lucky ones,{w=0.6} huh?{w=0.4}{nw}"
         extend 3fsqsm " Not having to struggle with compliments."
-        n 4fsqfl "I'm not gonna lie."
-        n 4fsqem "Part of me is jealous.{w=0.56}"
-        n 3fsqsm "But mostly?{w=0.3} I'm glad.{w=0.5}{nw}"
-        extend 3knmfl " Because it means you don't have to deal with that stupid voice in your head."
-        n "I {i}might{/i} try to steal some of that aura so don't be surprised if you notice some negatives in your aura."
+        n 3tlrss "I'm not gonna lie."
+        n 2ccspo "Part of me is jealous.{w=0.56}"
+        extend 4usgct " But mostly,{w=0.3} I'm just glad.{w=0.5}{nw}"
 
     return
 
