@@ -191,8 +191,8 @@ label talk_wowm_judgemento:
             n 3cdwfl "If you know someone who's being judged,{w=0.5}{nw}"
             extend 3klrfl " stand up for them."
             n 3knmfl "You don't have to be loud about it or start a fight."
-            n 6kcsss "Sometimes just saying "
-            extend 3fsqem "'hey, that's not cool!' "
+            n 6kcsss "Sometimes just saying{w=0.7}{nw} "
+            extend 3fsqem "'hey, that's not cool!'{w=0.7}{nw} "
             extend 2ccssg "is enough."
             n 3kdwss "Check in with them afterwards, too."
             n 4fnmbg "Let them know you see what's happening and you don't agree with it."
@@ -488,7 +488,7 @@ label talk_wowm_takenfromeurobradi:
         n 4ccsca "...{w=0.2}{nw}"
         extend 2cdwss "I'll be honest."
 
-    n 6cslsg "I didn't just wake up one day and decide to be nice.{w=0.83}{nw}"
+    n 6cslsg "I didn't just wake up one day and decide to be nice.{w=0.73}{nw}"
     extend 4ccsbg " I had to {i}learn{/i} it."
     n 6ttlgs "When I first joined the club?{w=0.65}{nw}"
     extend 3kchtsesz " I had a lot of opinions about everyone."
@@ -612,23 +612,45 @@ label talk_wowm_nutakecompliments:
     menu:
         n "Try me.{w=0.33} I wanna see if compliments does anything on me too."
 
-        "You're so cute.":
-            n 4ccuemleex "..!"
-            n 4cwmwrl "I'm {i}not{/i}!!!"
-            n 1fbkwrl "Are you just making fun of me?!"
+        "You are gorgeous.":
+            n 4ccuemleex "G-{w=0.2}Gorgeous?!"
+            n 4cwmwrl "W-{w=0.2}Where did that come from?!"
+                    "You did tell me to compliment you.":
+                        n 1fbkwrl "S-{w=0.19}shut it!!"
+                        n 2clrpol "I-{w=0.16}I know that!{w=0.5} Obviously!"
+            #n 4ccuemleex "..!"
+            #n 4cwmwrl "I'm {i}not{/i}!!!"
+            #n 1fbkwrl "Are you just making fun of me?!"
 
-        "You're so pretty.":
-            n 4uskpul "I-{w=0.29}{nw}"
-            extend 4flleml "I'm not-{w=0.39}{nw}"
-            extend 1fcsunl " I mean...{w=0.39}{nw}"
-            extend 2klrpol " that's-{w=0.49}{nw}"
-            extend 2cdwupl " ugh!"
-            n 4cbkgsless "J-{w=0.19}just shut up!!!"
+        "You always make my bad days a little better.":
+            n 4ccuemleex "..!"
+            n 2cdwupl "..."
+            n 4fcsanl "..."
+            n 4fbkwrl "..S-{w=0.26}Stop staring at me already!!"
+            n 2clrbol "What do you even expect me to say?!"
+            #n 4cwmwrl "I'm {i}not{/i}!!!"
+            #n 1fbkwrl "Are you just making fun of me?!"
+
+        "Your smile erases every worry I'll ever have.":
+            n 4uwdemlesu "M-{w=0.12}My smile?!"
+            n 2cllajl "That's...{w:0.3}{nw}"
+            extend 4fbkwrl " that's so sappy!"
+            n 4ksggsl "You can't just say stuff like that!"
+            n 1ccsfll "Erases every worry...{w:0.3}{nw}"
+            extend 4fnmunl " what does that even mean?!"
+            n 2fcspol "You're such a dork."
+            #n 4uskpul "I-{w=0.29}{nw}"
+            #extend 4flleml "I'm not-{w=0.39}{nw}"
+            #extend 1fcsunl " I mean...{w=0.39}{nw}"
+            #extend 2klrpol " that's-{w=0.49}{nw}"
+            #extend 2cdwupl " ugh!"
+            #n 4cbkgsless "J-{w=0.19}just shut up!!!"
 
         "You're so lovable.":
             n 4uskgsl "W-{w=0.19}wha-?!"
             n 2cwdeml "L-{w=0.19}lovable?{w=0.5}"
             n 2cdlpol "That's such a cheesy word..."
+            n 3cwmgsl "I can't believe you said that out loud."
 
     n 2ccspol "...{w=0.5}"
     extend 4cslfslesd "..."
@@ -704,7 +726,7 @@ label talk_wowm_nutakecompliments:
             extend 4fwmwrean " 'How could they?'"
             n 3klrpu "..."
             n 1nslfl "So,{w=0.14} when someone's actually being nice...{w=0.89}{nw}"
-            extend 7ckraj " I get suspicious."
+            extend 7ckraj " it's hard to not get suspicious."
             n 3ccsfl "There's always a voice in my head that says:"
             extend 6cslem " 'They're just being nice.',{w=0.56}{nw}"
             extend 1cdwun " 'They don't really mean it.'{w=0.57}{nw}"
@@ -718,7 +740,8 @@ label talk_wowm_nutakecompliments:
             n 2fdwfr "I get defensive,{w=0.5}{nw}"
             extend 3kupsssbr " act like I don't care,{w=0.6}{nw}"
             extend 5clrbgsbl " or I make a joke to brush it off."
-            n 1nslsssbr "It's easier than just taking it and saying 'thanks'."
+            n 1nslsssbr "It's easier than just taking it and saying 'thanks', {w=0.9}{nw}"
+            extend 3kchss "for some reason."
 
     n 4ccssl "..."
     n 5udtpo "So...{w=0.41}{nw}"
@@ -772,7 +795,7 @@ label reason_menu:
                 n 5kdtcsesd "So you just freeze."
                 jump after_reason_menu
 
-            "Next page →":
+            "→ Next page →":
                 $ reason_page = 2
                 jump reason_menu
 
@@ -816,7 +839,7 @@ label reason_menu:
                 #$ persistent._wowmtopics["wowmi_playa_complimen_noprob"] = "true"
                 jump after_reason_menu
 
-            "← Previous page":
+            "← Previous page ←":
                 $ reason_page = 1
                 jump reason_menu
 
@@ -834,11 +857,11 @@ label after_reason_menu:
 
     elif persistent._wowmtopics.get("no_recieve_complimens") == "false":
         n 2ccspolesd "..."
-        n 4fsqsm "So...{w=0.3} "
-        extend 7twmbg " you're one of the lucky ones,{w=0.6} huh?{w=0.4}{nw}"
+        n 4fsqsm "Geez...{w=0.3} "
+        extend 7twmbg " must be nice being smug about it,{w=0.67} eh?{w=0.6}{nw}"
         extend 3fsqsm " Not having to struggle with compliments."
-        n 3tlrss "I'm not gonna lie."
-        n 2ccspo "Part of me is jealous.{w=0.56}"
+        n 3tlrss "I'm not gonna lie--"
+        extend 2ccspo " Part of me is jealous.{w=0.56}"
         extend 4usgct " But mostly,{w=0.3} I'm just glad.{w=0.5}{nw}"
 
     return
