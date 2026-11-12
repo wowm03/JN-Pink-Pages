@@ -615,9 +615,10 @@ label talk_wowm_nutakecompliments:
         "You are gorgeous.":
             n 4ccuemleex "G-{w=0.2}Gorgeous?!"
             n 4cwmwrl "W-{w=0.2}Where did that come from?!"
-                    "You did tell me to compliment you.":
-                        n 1fbkwrl "S-{w=0.19}shut it!!"
-                        n 2clrpol "I-{w=0.16}I know that!{w=0.5} Obviously!"
+            menu:
+                "You did tell me to compliment you.":
+                    n 1fbkwrl "S-{w=0.19}shut it!!"
+                    n 2clrpol "I-{w=0.16}I know that!{w=0.4} Obviously!"
             #n 4ccuemleex "..!"
             #n 4cwmwrl "I'm {i}not{/i}!!!"
             #n 1fbkwrl "Are you just making fun of me?!"
@@ -626,17 +627,19 @@ label talk_wowm_nutakecompliments:
             n 4ccuemleex "..!"
             n 2cdwupl "..."
             n 4fcsanl "..."
+            n 4cwdflf "..."
+            n 2fdwunf "..."
             n 4fbkwrl "..S-{w=0.26}Stop staring at me already!!"
-            n 2clrbol "What do you even expect me to say?!"
+            n 2clrpol "What do you even expect me to say?!"
             #n 4cwmwrl "I'm {i}not{/i}!!!"
             #n 1fbkwrl "Are you just making fun of me?!"
 
         "Your smile erases every worry I'll ever have.":
             n 4uwdemlesu "M-{w=0.12}My smile?!"
-            n 2cllajl "That's...{w:0.3}{nw}"
+            n 2cllajl "That's...{w=0.3}{nw}"
             extend 4fbkwrl " that's so sappy!"
             n 4ksggsl "You can't just say stuff like that!"
-            n 1ccsfll "Erases every worry...{w:0.3}{nw}"
+            n 1ccsfll "Erases every worry...{w=0.3}{nw}"
             extend 4fnmunl " what does that even mean?!"
             n 2fcspol "You're such a dork."
             #n 4uskpul "I-{w=0.29}{nw}"
@@ -763,8 +766,8 @@ label reason_menu:
                 $ persistent._wowmtopics["no_recieve_complimens"] = "true"
                 n 2knmpu "..."
                 n 2kslfl "I feel you."
-                n 1ccsun "Sometimes...{w=0.15} an unasked-for thought just pops into your mind,{w=0.78}{nw}"
-                n 6cuptr " like...{w=0.4}{nw}"
+                n 1ccsun "Sometimes...{w=0.15} an unasked-for thought just pops into your mind,{w=0.98}{nw}"
+                extend 6cuptr " like...{w=0.4}{nw}"
                 extend 3ksrfs " 'Why would anyone say anything nice about {i}me{/i}?'"
                 n 4kwmbg "But here's the thing,{w=0.5}{nw}"
                 extend 6fcsaw " you {i}are{/i} worthy."
@@ -813,7 +816,7 @@ label reason_menu:
                 $ persistent._wowmtopics["no_recieve_complimens"] = "true"
                 n 2cnmfl "Ugh,{w=0.3} yeah."
                 n 2kcsfl "A really valid fear,{w=0.56} sadly."
-                n 1csrem "If nice words came with strings before...{w=1.2}{nw}"
+                n 1csrem "If nice words came with strings before...{w=0.82}{nw}"
                 extend 2kcsun " trusting them's gonna be hard."
                 n 3cwdfl "But that's not your fault at all,{w=0.56} got it?"
                 jump after_reason_menu
@@ -860,7 +863,7 @@ label after_reason_menu:
         n 4fsqsm "Geez...{w=0.3} "
         extend 7twmbg " must be nice being smug about it,{w=0.67} eh?{w=0.6}{nw}"
         extend 3fsqsm " Not having to struggle with compliments."
-        n 3tlrss "I'm not gonna lie--"
+        n 3tlrss "I'm not gonna lie-"
         extend 2ccspo " Part of me is jealous.{w=0.56}"
         extend 4usgct " But mostly,{w=0.3} I'm just glad.{w=0.5}{nw}"
 
