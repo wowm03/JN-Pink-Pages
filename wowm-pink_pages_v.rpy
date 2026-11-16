@@ -773,6 +773,15 @@ label reason_menu:
                 extend 6fcsaw " you {i}are{/i} worthy."
                 if Natsuki.isHappy(higher=False):
                     n 1cdreml "D-{w=0.14}don't make me say this twice."
+                if Natsuki.isEnamoured(higher=False):
+                    n 1cdreml "I don't know how to say it any plainer,{w=0.67} so just...{w=0.5} take it."
+                if Natsuki.isLove(higher=False):
+                    n 1cdreml "I mean it."
+                    n 1cdreml "I-{w=0.14}I did choose you, didn't I?"
+                    n 1cdreml "You didn't have to do anything for that... {w=0.78}{nw}"
+                    extend 1cdreml " you were already enough."
+                    n 1cdreml "Don't act like my love fell on you out of nowhere, {w=0.67}{nw}"
+                    extend 1cdreml " you earned every bit."
                 jump after_reason_menu
 
             "I'm afraid of the expectations that come with accepting it.":
